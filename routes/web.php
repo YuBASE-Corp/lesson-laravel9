@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TweetController; // 追記
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('top'); // welcome から top に変更
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// グループで囲み、その中にエンドポイントを作成
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/tweets', [TweetController::class, 'index'])->name('tweets.index');
+});
 
 require __DIR__.'/auth.php';
