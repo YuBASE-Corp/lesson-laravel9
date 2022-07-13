@@ -13,7 +13,19 @@ class TweetController extends Controller
      */
     public function index()
     {
-        //
+        $data = new \stdClass(); // namespace がついているので stdClass() を \stdClass() に変更
+        $data->message = 'Laravelからのメッセージ';
+        $data->created_at = '2022/01/01 00:00';
+
+        $data2 = new \stdClass(); // namespace がついているので stdClass() を \stdClass() に変更
+        $data2->message = 'Laravelからのメッセージ その2';
+        $data2->created_at = '2022/01/01 00:00';
+
+        $tweets = [$data, $data2]; // オブジェクトの配列を作成
+
+        return view('tweets', [
+            'tweets' => $tweets
+        ]);
     }
 
     /**
