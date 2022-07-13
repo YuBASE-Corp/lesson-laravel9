@@ -22,5 +22,15 @@ Route::get('/hello', function () {
 });
 
 Route::get('/tweets', function() {
-    return view("tweets");
+
+    // 空のクラスを作成
+    $data = new stdClass();
+    // プロパティを追加
+    $data->message = "Laravelからのメッセージ";
+    $data->created_at = "2022/01/01 00:00";
+    // dd($tweet);
+
+    return view("tweets", [
+        'tweet' => $data
+    ]);
 });
