@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <p>hello.blade.php</p>
+    {{-- echo と似たような仕組み --}}
+    <p>{{ "メッセージ" }}</p>
+    <p>{{ 1 + 2 }}</p>
 </body>
 </html>
