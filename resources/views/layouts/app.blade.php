@@ -13,17 +13,15 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+        <!-- Material Design for Bootstrap 読み込み 開始 -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+        <link rel="stylesheet" href="{{ asset('css/mdb.min.css') }}" />
+        <script type="text/javascript" src="{{ asset('js/mdb.min.js') }}" defer></script>
+        <!-- Material Design for Bootstrap 読み込み 終了 -->
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
-
-            <!-- Page Heading -->
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
 
             <!-- Page Content -->
             <main>
