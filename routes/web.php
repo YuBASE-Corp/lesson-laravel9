@@ -23,14 +23,20 @@ Route::get('/hello', function () {
 
 Route::get('/tweets', function() {
 
-    // 空のクラスを作成
+    // データその1
     $data = new stdClass();
-    // プロパティを追加
     $data->message = "Laravelからのメッセージ";
     $data->created_at = "2022/01/01 00:00";
-    // dd($tweet);
+    
+    // データその2
+    $data2 = new stdClass();
+    $data2->message = "Laravelからのメッセージ その2";
+    $data2->created_at = "2023/01/01 00:00";
+
+    // 配列を作成
+    $tweets = [$data, $data2];
 
     return view("tweets", [
-        'tweet' => $data
+        'tweets' => $tweets
     ]);
 });

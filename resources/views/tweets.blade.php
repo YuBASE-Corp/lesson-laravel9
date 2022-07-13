@@ -17,6 +17,7 @@
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-12 col-sm-12 col-md-10 col-lg-8">
+                @foreach($tweets as $tweet)
                     <!-- ぼやき表示用のカード 開始 -->
                     <div class="card card-body shadow-2 mb-2">
                         <div class="d-flex justify-content-between">
@@ -30,6 +31,7 @@
                         </p>
                     </div>
                      <!-- ぼやき表示用カード終了 -->
+                @endforeach
             </div>
         </div>
     </div>
