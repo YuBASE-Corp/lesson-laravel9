@@ -21,6 +21,7 @@ Route::get('/', function () {
 // グループで囲み、その中にエンドポイントを作成
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/tweets', [TweetController::class, 'index'])->name('tweets.index');
+    Route::post('/tweets', [TweetController::class, 'store'])->name('tweets.store'); // 追記
 });
 
 require __DIR__.'/auth.php';
