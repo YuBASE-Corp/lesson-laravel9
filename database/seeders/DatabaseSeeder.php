@@ -21,6 +21,19 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        \App\Models\Tag::create([
+            'name' => 'ライフハック'
+        ]);
+
+        \App\Models\Tag::create([
+            'name' => 'エッセイ'
+        ]);
+
+        \App\Models\Tag::create([
+            'name' => 'お知らせ'
+        ]);
+
+
         \App\Models\User::create([
             'name' => 'テストユーザ',
             'email' => 'test@example.com',
