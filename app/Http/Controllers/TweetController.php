@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use App\Models\Tweet;
 use Illuminate\Http\Request;
 
@@ -15,9 +16,11 @@ class TweetController extends Controller
     public function index()
     {
         $tweets = Tweet::all();
+        $tags = Tag::all();
 
         return view('tweets', [
-            'tweets' => $tweets
+            'tweets' => $tweets,
+            'tags' => $tags
         ]);
     }
 
