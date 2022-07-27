@@ -20,11 +20,7 @@ Route::get('/', function () {
 
 // グループで囲み、その中にエンドポイントを作成
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/tweets', [TweetController::class, 'index'])->name('tweets.index');
-    Route::post('/tweets', [TweetController::class, 'store'])->name('tweets.store');
-    Route::get('/tweets/{tweet}/edit', [TweetController::class, 'edit'])->name('tweets.edit');
-    Route::put('/tweets/{tweet}', [TweetController::class, 'update'])->name('tweets.update');
-    Route::delete('/tweets/{tweet}', [TweetController::class, 'destroy'])->name('tweets.destroy');
+    Route::resource('tweets', TweetController::class)->except(['create', 'show']);
 });
 
 require __DIR__.'/auth.php';
