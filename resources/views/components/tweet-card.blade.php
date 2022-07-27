@@ -9,4 +9,11 @@
     <p class="card-text">
         {{ $tweet->message }}
     </p>
+    {{-- 追記 --}}
+    <div>
+        @foreach($tweet->tags as $tag)
+            <span class="badge badge-pill badge-primary">{{$tag->name}}</span>
+        @endforeach
+    </div>
+    {{-- 追記完了 --}}
 </div>
