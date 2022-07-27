@@ -67,9 +67,15 @@ class TweetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Tweet $tweet)
     {
-        //
+        $tags = Tag::all();
+        $selectedTags = $tweet->tags->pluck('id')->all();
+        return view('edit', [
+            'tweet' => $tweet,
+            'tags' => $tags,
+            'selectedTags' => $selectedTags
+        ]);
     }
 
     /**
