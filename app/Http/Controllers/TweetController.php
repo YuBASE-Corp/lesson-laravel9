@@ -15,7 +15,7 @@ class TweetController extends Controller
      */
     public function index()
     {
-        $tweets = Tweet::with(['user', 'tags'])->get();
+        $tweets = Tweet::with(['user','tags'])->orderBy('created_at', 'desc')->get();
         $tags = Tag::all();
 
         return view('tweets', [
