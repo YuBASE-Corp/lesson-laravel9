@@ -111,7 +111,10 @@ class TweetController extends Controller
     public function search(Request $request)
     {
         $keyword = $request->keyword;
-        $tweets = Tweet::where('message', 'LIKE', "%{$keyword}%")->get();
+        $tweets = Tweet::with(['user','tags'])
+            ->where('message', 'LIKE', "%{$keyword}%")
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         return view('search', [
             'tweets' => $tweets,
