@@ -110,6 +110,10 @@ class TweetController extends Controller
 
     public function search(Request $request)
     {
+        if(!$request->has('keyword')) {
+            return redirect('/tweets');
+        }
+
         $keyword = $request->keyword;
         $tweets = Tweet::with(['user','tags'])
             ->where('message', 'LIKE', "%{$keyword}%")
