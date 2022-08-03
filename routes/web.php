@@ -21,6 +21,7 @@ Route::get('/', function () {
 // グループで囲み、その中にエンドポイントを作成
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('tweets', TweetController::class)->except(['create', 'show']);
+    Route::get('search', [TweetController::class, 'search'])->name('tweets.search');
 });
 
 require __DIR__.'/auth.php';

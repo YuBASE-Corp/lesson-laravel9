@@ -107,4 +107,9 @@ class TweetController extends Controller
         $tweet->delete();
         return redirect()->route('tweets.index');       
     }
+
+    public function search(Request $request)
+    {
+        dd($request->keyword);
+    }
 }
