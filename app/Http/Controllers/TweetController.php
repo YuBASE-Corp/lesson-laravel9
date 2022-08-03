@@ -113,6 +113,9 @@ class TweetController extends Controller
         $keyword = $request->keyword;
         $tweets = Tweet::where('message', 'LIKE', "%{$keyword}%")->get();
 
-        dd($tweets);
+        return view('search', [
+            'tweets' => $tweets,
+            'keyword' => $keyword
+        ]);
     }
 }
